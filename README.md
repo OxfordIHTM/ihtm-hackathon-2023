@@ -1,0 +1,135 @@
+# International Health and Tropical Medicine Hackathon 2023
+
+<!-- badges: start -->
+[![License for data](https://img.shields.io/badge/license (for data)-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![License for code](https://img.shields.io/badge/license (for code)-GPL3.0-blue.svg)](https://opensource.org/licenses/gpl-3.0.html)
+<!-- badges: end -->
+
+This repository contains instructions, data and code for the [University
+of Oxford MSc in International Health and Tropical
+Medicine](https://www.ox.ac.uk/admissions/graduate/courses/msc-international-health-and-tropical-medicine)
+inaugural **Hackathon 2023**. The **Hackathon 2023** event is part of
+the [MSc course](https://www.ox.ac.uk/admissions/graduate/courses/msc-international-health-and-tropical-medicine)’s
+[lecture series on Open Science and Reproducible Research in
+R](https://oxford-ihtm.io/open-reproducible-science).
+
+## Motivation
+
+**Hackathon 2023** caps the students’ introduction to [Open Science and
+Reproducible Research in
+R](https://oxford-ihtm.io/open-reproducible-science) through an actual
+global health project within which they are to serve as researchers/data
+scientists. This exercise aims to provide the students a platform from
+which to apply skills in working with data using R that they have been
+learning and practicing for about the past 6 weeks while at the same
+time exposing them to a collaborative team environment
+
+## Format
+
+**Hackathon 2023** is structured as a **problem-based learning**
+exercise, a format that the course students are already familiar with
+given similar approaches done for other lectures. Briefly, this PBL
+exercise presents the problem first rather than teaching relevant
+material and subsequently having students apply the knowledge to solve
+the problem. Whilst the previous lectures in the [Open Science and
+Reproducible Research in
+R](https://oxford-ihtm.io/open-reproducible-science) series have
+provided foundational skills in R, the PBL approach for this hackathon
+will challenge the students to further explore and learn the extensive
+functionalities R has to offer in order to appropriately solve the
+problem/s they have been given to solve. This PBL is group-orientated
+and simulates a collaborative research/data science working environment
+facilitated through the use of [git](https://git-scm.com/) and
+[GitHub](https://github.com).
+
+Through this approach, the students are expected to:
+
+1.  Examine and define the problem.
+
+2.  Explore what they already know about underlying issues related to
+    it.
+
+3.  Determine what they need to learn and where they can acquire the
+    information and tools necessary to solve the problem.
+
+4.  Evaluate possible ways to solve the problem.
+
+5.  Solve the problem.
+
+6.  Report on their findings.
+
+## The case
+
+The case study along with the hackathon rules are presented here -
+<https://oxford-ihtm.io/ihtm-hackathon-2023/case_study.html>.
+
+## Repository/project structure
+
+- `renv/` contains the project-specific R package library created by the
+  `{renv}` package (see section below on **Reproducibility** for details)
+  
+- `renv.lock` is the file created by the `{renv}` package that lists out
+  the various packages used in this project 
+  (see section below on **Reproducibility** for details)
+
+- `data/` contains the coverage assessment dataset called
+  `nutrition_survey_dataset.csv`
+
+- `R/` contains functions created or that will be created for use in
+  this project
+
+Currently, this folder contains an R file called `get_data.R`. This
+file specifies a function called `get_data()` which retrieves and
+processes the data for this hackathon. It also saves this dataset as a
+CSV file called `nutrition_survey_dataset.csv` in the `data` folder.
+
+- `outputs/` contains compiled reports, figures, and other outputs
+
+Currently, this folder contains the file `case_study.html` which is the
+HTML output of `case_study.Rmd` (see below) which details the case study and 
+the rules for this hackathon
+
+- `case_study.Rmd` is the R Markdown file that produces the `case_study.html`
+  file found in the `outputs` folder
+
+- `coverage_assessment.R` is the R workflow script for the coverage assessment
+  analysis
+  
+- `coverage_assessment_report.Rmd` is the R Markdown for the coverage
+  assessment report
+  
+## Reproducibility
+
+This project requires R version 4.2.2. This project uses the `{renv}` 
+framework to record R package dependencies and versions. Packages and 
+versions used are recorded in `renv.lock` and code used to manage 
+dependencies is in the `renv/` directory. 
+
+To work on this project, please follow these steps:
+
+1. Clone this project onto your local machine. Instructions on how this is 
+   done can be found 
+   [here](https://oxford-ihtm.io/ihtm-handbook/clone-repository.html).
+
+2. Run `renv::restore()` to install R package dependencies.
+
+
+Once all R package dependencies have been installed, you should be able
+to work on this hackathon project. Please ensure that before making any
+changes and contributions, create a new local branch from main
+(see [here](https://oxford-ihtm.io/ihtm-handbook/participate-projects.html#create-a-new-branch-from-the-main-branch)
+for instructions on how to create a new branch)
+
+## License
+
+Unless otherwise specified, data used in this repository are licensed under a 
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) license.
+
+All code in this repository are licensed under a 
+[GNU General Public License 3 (GPL-3)](https://opensource.org/licenses/gpl-3.0.html) 
+license.
+
+
+
+<br/>
+<br/>
