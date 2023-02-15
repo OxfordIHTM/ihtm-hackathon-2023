@@ -6,7 +6,7 @@ output: html_document
 
 ## The case
 
-A three-year nutrition programme has been implemented in Liberia by UNICEF aimed at tackling child undernutrition in the country. Funded by [Power of Nutrition](http://www.powerofnutrition.org) and [UNICEF UK](https://www.unicef.org.uk), the programme has been implemented across 15 counties in Liberia starting from January 2017 up to December 2019. The overall aim of the programme is to improve the coverage of direct nutrition interventions or what is commonly termed nutrition-specific interventions, i.e. interventions or programmes that address the immediate determinants of foetal and child nutrition and development — adequate food and nutrient intake, feeding, caregiving and parenting practices, and low burden of infectious diseases. The current programme supports the following specific key interventions: 1) *treatment of severe acute malnutrition (SAM) within the community-based management of acute malnutrition (CMAM) programme for children 6-59 months*; 2) *vitamin A supplementation for children 6-59 months*; 3) *promotion of appropriate infant and young child feeding (IYCF) practices among pregnant or lactating women*; 4) *multiple micronutrient powder (MNP) supplementation for children 6-23 months*; and, 5) *iron and folic acid (IFA) supplementation for pregnant women*.
+A three-year nutrition programme has been implemented in Liberia by the Ministry of Health and UNICEF aimed at tackling child undernutrition in the country. Funded by [Power of Nutrition](http://www.powerofnutrition.org) and [UNICEF UK](https://www.unicef.org.uk), the programme has been implemented across 15 counties in Liberia starting from January 2017 up to December 2019. The overall aim of the programme is to improve the coverage of direct nutrition interventions or what is commonly termed nutrition-specific interventions, i.e. interventions or programmes that address the immediate determinants of foetal and child nutrition and development — adequate food and nutrient intake, feeding, caregiving and parenting practices, and low burden of infectious diseases. The current programme supports the following specific key interventions: 1) *treatment of severe acute malnutrition (SAM) within the community-based management of acute malnutrition (CMAM) programme for children 6-59 months*; 2) *vitamin A supplementation for children 6-59 months*; 3) *promotion of appropriate infant and young child feeding (IYCF) practices among pregnant or lactating women*; 4) *multiple micronutrient powder (MNP) supplementation for children 6-23 months*; and, 5) *iron and folic acid (IFA) supplementation for pregnant women*.
 
 To assess the programme's progress towards its overall aim, two coverage assessments have been implemented - the first at the halfway point of the programme and the second at the end. Only two programme areas were selected for the assessments: *Urban Montserrado (Greater Monrovia)* district and *Grand Bassa* county.
 
@@ -14,49 +14,50 @@ To assess the programme's progress towards its overall aim, two coverage assessm
 
 The Director of the MSc in International Health and Tropical Medicine of the University of Oxford was requested by one of her course alumni for support in analysing the data from the two coverage assessments conducted. Specifically, she asked support in addressing the following questions using the coverage assessment data:
 
-1. Describe the sample of children included in the dataset:
 
-    * How many children are in the overall sample?
-    * How mnay children are males and how many are females?
-    * How many children are from Urban Montserrado and how many are from Grand Bassa?
-    * How many children are males from Urban Montserrado and males from Grand Bassa?
-    * How many children are females from Urban Montserrado and females from Grand Bassa?
-    * What is the distribution of ages of children in the overall sample?
-    * What is the distribution of ages of children by the sex of the child?
-    * What is the distribution of ages of children by location?
-    * What is the distribution of ages of children by sex and by location?
-     
-2. What is coverage of screening activities in the past month? Specifically:
+### Describe the sample of children included in the dataset:
 
-    * What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample?
-    * What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample by sex?
-    * What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample by location?
-    * What is the coverage of nutritional oedema screening among children in the sample?
-    * What is the coverage of nutritional oedema screening among children in the sample by sex?
-    * What is the coverage of nutritional oedema screening among children in the sample by location?
+* How many children are in the overall sample?
+* How mnay children are males and how many are females?
+* How many children are from Urban Montserrado and how many are from Grand Bassa?
+* How many children are males from Urban Montserrado and males from Grand Bassa?
+* How many children are females from Urban Montserrado and females from Grand Bassa?
+* What is the distribution of ages of children in the overall sample?
+* What is the distribution of ages of children by the sex of the child?
+* What is the distribution of ages of children by location?
+* What is the distribution of ages of children by sex and by location?
+
+### What is coverage of screening activities in the past month? Specifically:
+
+* What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample?
+* What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample by sex?
+* What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample by location?
+* What is the coverage of nutritional oedema screening among children in the sample?
+* What is the coverage of nutritional oedema screening among children in the sample by sex?
+* What is the coverage of nutritional oedema screening among children in the sample by location?
     
-3. What is the prevalence of acute malnutriiton in the sample?
+### What is the prevalence of acute malnutriiton in the sample?
 
-    * How many children 6-59 months old in the sample are moderate acute malnourished (MAM) cases?
-    * How many children 6-59 months old in the sample are moderate acute malnourished (MAM) cases by sex and by location?
-    * What is the prevalence of moderate acute malnutrition (MAM) among children 6-59 months old in the sample by sex and by location?
-    * How many children 6-59 months old in the sample are severe acute malnourished (SAM) cases?
-    * How many children 6-59 months old in the sample are severe acute malnourished (SAM) cases by sex and by location?
-    * What is the prevalence of severe acute malnutrition (SAM) among children 6-59 months old in the sample by sex and by location?
-    * How many children 6-59 months old in the sample are acute malnourished cases (either MAM or SAM)?
-    * How many children 6-59 months old in the sample are acute malnourished cases (either MAM or SAM) by sex and by location?
-    * What is the prevalence of acute malnutrition (either MAM or SAM) among children 6-59 months old in the sample by sex and location?
+* How many children 6-59 months old in the sample are moderate acute malnourished (MAM) cases?
+* How many children 6-59 months old in the sample are moderate acute malnourished (MAM) cases by sex and by location?
+* What is the prevalence of moderate acute malnutrition (MAM) among children 6-59 months old in the sample by sex and by location?
+* How many children 6-59 months old in the sample are severe acute malnourished (SAM) cases?
+* How many children 6-59 months old in the sample are severe acute malnourished (SAM) cases by sex and by location?
+* What is the prevalence of severe acute malnutrition (SAM) among children 6-59 months old in the sample by sex and by location?
+* How many children 6-59 months old in the sample are acute malnourished cases (either MAM or SAM)?
+* How many children 6-59 months old in the sample are acute malnourished cases (either MAM or SAM) by sex and by location?
+* What is the prevalence of acute malnutrition (either MAM or SAM) among children 6-59 months old in the sample by sex and location?
     
-4. What is the coverage of severe acute malnutrition (SAM) treatment in the sample?
+### What is the coverage of severe acute malnutrition (SAM) treatment in the sample?
 
-    * How many severe acute malnourished children 6-59 months old are currently in the treatment programme?
-    * How many severe acute malnourished children 6-59 months old are currently in the treatment programme by location?
-    * How many children 6-59 months old are currently in the treatment programme and are recovering from severe acute malnutrition?
-    * How many children 6-59 months old are currently in the treatment programme and are recovering from severe acute malnutrition by location?
-    * What is the case-finding effectiveness of the SAM treatment programme?
-    * What is the case-finding effectiveness of the SAM treatment programme by location?
-    * What is the treatment coverage of the SAM treatment programme?
-    * What is the treatment coverage of the SAM treatment programme by location?
+* How many severe acute malnourished children 6-59 months old are currently in the treatment programme?
+* How many severe acute malnourished children 6-59 months old are currently in the treatment programme by location?
+* How many children 6-59 months old are currently in the treatment programme and are recovering from severe acute malnutrition?
+* How many children 6-59 months old are currently in the treatment programme and are recovering from severe acute malnutrition by location?
+* What is the case-finding effectiveness of the SAM treatment programme?
+* What is the case-finding effectiveness of the SAM treatment programme by location?
+* What is the treatment coverage of the SAM treatment programme?
+* What is the treatment coverage of the SAM treatment programme by location?
     
 In response, the MSc Director has assigned the challenge to the course's current crop of students to work through the dataset and address the various questions raised.
 
