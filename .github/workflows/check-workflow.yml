@@ -1,4 +1,4 @@
-name: check assignment
+name: check workflow
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - '*'
 
 jobs:
-  check-assignment:
+  check-workflow:
     runs-on: ubuntu-latest
     container: rocker/verse:4.2.2
     steps:
