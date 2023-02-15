@@ -19,9 +19,18 @@ nut <- get_data()
 
 # Problem 1: Describe the data ----
 
+#How many children in the baseline 
+sum(nut$survey_round == "Baseline")
+#Number of children in endline
+sum(nut$survey_round == "Endline")
+nrow ("survey_round")
 
+A=sum(nut$survey_round == "Baseline")
+B= sum(nut$survey_round == "Endline")
 
-
+sum (A+B)
+if(nut$survey_round!= "Baseline" && "Endline")
+  
 
 
 
