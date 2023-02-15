@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# International Health and Tropical Medicine Hackathon 2023
+# Oxford International Health and Tropical Medicine Hackathon 2023 <img src="https://github.com/OxfordIHTM/open-reproducible-science/raw/main/images/ihtm_small.png" width="200px" align="right" />
 
 <!-- badges: start -->
 

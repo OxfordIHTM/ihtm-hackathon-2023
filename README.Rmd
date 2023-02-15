@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# International Health and Tropical Medicine Hackathon 2023
+# Oxford International Health and Tropical Medicine Hackathon 2023 <img src="https://github.com/OxfordIHTM/open-reproducible-science/raw/main/images/ihtm_small.png" width="200px" align="right" />
 
 <!-- badges: start -->
 [![License for data](https://img.shields.io/badge/license (for data)-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
