@@ -1,0 +1,61 @@
+name: check assignment
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    branches:
+      - '*'
+
+jobs:
+  check-assignment:
+    runs-on: ubuntu-latest
+    container: rocker/verse:4.2.2
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install system dependencies
+        run: |
+          apt-get update && apt-get install -y --no-install-recommends \
+          libxt6 libglpk-dev
+        
+      - name: Install packages from renv.lock (with cache)
+        if: ${{ !env.ACT }}  
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 2
+
+      - name: Install packages from renv.lock (local, no cache)
+        if: ${{ env.ACT }}  
+        run: |
+          renv::restore()
+        shell: Rscript {0}
+      
+      - name: Check that R file runs without errors
+        run: |
+          lapply(
+            X = c(
+              list.files(pattern = "\\.R$|\\.r$"),
+              list.files("R", full.names = TRUE)
+            ),
+            FUN = source
+          )
+        shell: Rscript {0}
+          
+      - name: Check that Rmd file runs without errors
+        run: |
+          rmarkdown::render(
+            input = "coverage_assessment_report.Rmd",
+            output_dir = "docs"
+          )
+        shell: Rscript {0}
+        
+      - name: Upload Rmarkdown reports
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: rmd-output
+          path: ./docs/coverage_assessment_report.html
+          
