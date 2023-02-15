@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 for (f in list.files("R", full.names = TRUE)) source (f)
 ```
 
+## Introduction
 
 A three-year nutrition programme has been implemented in Liberia by the Ministry of Health and UNICEF aimed at tackling child undernutrition in the country. Funded by [Power of Nutrition](http://www.powerofnutrition.org) and [UNICEF UK](https://www.unicef.org.uk), the programme has been implemented across 15 counties in Liberia starting from January 2017 up to December 2019. The overall aim of the programme is to improve the coverage of direct nutrition interventions or what is commonly termed nutrition-specific interventions, i.e. interventions or programmes that address the immediate determinants of foetal and child nutrition and development — adequate food and nutrient intake, feeding, caregiving and parenting practices, and low burden of infectious diseases. The current programme supports the following specific key interventions: 1) *treatment of severe acute malnutrition (SAM) within the community-based management of acute malnutrition (CMAM) programme for children 6-59 months*; 2) *vitamin A supplementation for children 6-59 months*; 3) *promotion of appropriate infant and young child feeding (IYCF) practices among pregnant or lactating women*; 4) *multiple micronutrient powder (MNP) supplementation for children 6-23 months*; and, 5) *iron and folic acid (IFA) supplementation for pregnant women*.
 
