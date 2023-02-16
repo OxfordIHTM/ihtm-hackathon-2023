@@ -21,7 +21,14 @@ knitr::opts_chunk$set(
   echo = FALSE
 )
 
+## Load libraries
+library(dplyr)
+
+## Load functions in R folder
 for (f in list.files("R", full.names = TRUE)) source (f)
+
+## Get data
+nut <- get_data()
 ```
 
 ## Introduction
