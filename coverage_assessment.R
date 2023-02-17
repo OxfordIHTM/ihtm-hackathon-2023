@@ -91,7 +91,7 @@ list <- data.frame(SEX,MUAC, OEDEMA, num_data$county)
 ##creating data frame by sex,muac,oedema and location
 
 
-tab <-table(SEX,my_data$county, MUAC )
+tab <-table(SEX,num_data$county, MUAC )
 
 ##creating table showing different numbers of children according to moderate,severe degree of Malnutrition and normal children
 
