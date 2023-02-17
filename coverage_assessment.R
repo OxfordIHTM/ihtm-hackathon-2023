@@ -41,16 +41,6 @@ nut <- get_data()
 
 # Problem 3: Prevalence of acute undernutrition/malnutrition ----
 
-library(dplyr)
-
-## Load functions in R directory ----
-for (f in list.files("R", full.names = TRUE)) source (f)
-
-
-# Read data ----
-nut <- get_data()
-
-
 ####MAM
 
 with(nut, sum(muac >= 11.5 & muac <12.5  & age >=6 & age <=59 & oedema == 2, na.rm= TRUE))
