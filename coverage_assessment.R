@@ -79,9 +79,9 @@ num_data <- with(nut, data.frame(sex,county,muac,oedema))
 
 ##assigning the data frame to num_data
 
-SEX <- ifelse(my_data$sex == "1", "Male", "Female")
-OEDEMA <- ifelse(my_data$oedema == "1", "Yes", "No")
-MUAC <- with( my_data, ifelse (muac <11.5, "Severe",
+SEX <- ifelse(num_data$sex == "1", "Male", "Female")
+OEDEMA <- ifelse(num_data$oedema == "1", "Yes", "No")
+MUAC <- with( num_data, ifelse (muac <11.5, "Severe",
                                ifelse(oedema == 1, "Severe",
                                       ifelse(muac >=11.5 & muac<12.5, "Moderate",
                                              ifelse (muac >=12.5, "Normal", "No")))))
@@ -96,6 +96,7 @@ tab <-table(SEX,my_data$county, MUAC )
 ##creating table showing different numbers of children according to moderate,severe degree of Malnutrition and normal children
 
 tab
+
 
 ##viewing table 
 
