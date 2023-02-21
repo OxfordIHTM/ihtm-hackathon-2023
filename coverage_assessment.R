@@ -86,7 +86,7 @@ Prev4_MAM <- MAM ["Male", "No", "TRUE","Grand Bassa"]/ Den #PREVALENCE OF FEMALE
 MAM_prevalences <- data.frame(Sex = c("Female", "Female", "Male", "Male"),County = c("Urban Montserrado", "Grand Bassa", "Urban Montserrado", "Grand Bassa"),Prevalence_of_MAM = c(Prev1_MAM,Prev2_MAM,Prev3_MAM,Prev4_MAM)) ## PREVALENCE OF MAM CASES BY SEX AND COUNTY
 
 MAM_prevalences_table <- xtabs(Prevalence_of_MAM ~ Sex + County, data = MAM_prevalences) ##CREATING TABLE FOR MAM PREVALENCE BY SEX AND COUNTY
-prevalences
+
 
 MAM_prevalences_table ##VIEW MAM PREVALENCE CASES BY SEX AND COUNTY
 
