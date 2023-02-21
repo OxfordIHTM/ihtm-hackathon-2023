@@ -28,6 +28,7 @@ nut <- get_data()
 
 
 
+
 # Problem 2: Screening coverage ----
 
 
@@ -51,6 +52,11 @@ nut <- get_data()
 
 
 # Problem 4: Coverage of severe acute malnutrition treatment ----
+
+nut[nut$age>=6 & nut$age<60 & (nut$muac<11.5 | nut$oedema==1), ]
+nut$sam[nut$age>=6 & nut$age<60 & (nut$muac<11.5 | nut$oedema==1)]<-'yes'
+nut$sam[nut$age>=6 & nut$age<60 & (nut$muac>=11.5 & nut$oedema==2)]<-'no'
+
 
 
 
