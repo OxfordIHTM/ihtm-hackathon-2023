@@ -134,11 +134,11 @@ SAM_prevalences_table ##VIEW SAM PREVALENCE BY SEX AND COUNTY
 
 MALNUTRITION <- ifelse(nut$muac <11.5 | nut$oedema == 1, "SAM","No SAM")
 
-MALNUTRITION <- ifelse(nut$muac >=11.5 & nut$muac < 12.5 & nut$oedema == 2, "MAM", AM)
+MALNUTRITION <- ifelse(nut$muac >=11.5 & nut$muac < 12.5 & nut$oedema == 2, "MAM", MALNUTRITION)
 
-MALNUTRITION <- ifelse(AM == "No SAM", "not SAM or MAM", AM)
+MALNUTRITION <- ifelse(MALNUTRITION == "No SAM", "not SAM or MAM", MALNUTRITION)
 
-MALNUTRITION <- ifelse(nut$age >=6 & nut$age <60, AM, NA )
+MALNUTRITION <- ifelse(nut$age >=6 & nut$age <60, MALNUTRITION, NA )
 
 final<- table(SEX,OEDEMA,MALNUTRITION,COUNTY, useNA = "ifany") ##CREATING A TABLE FOR EITHER MAM OR SAM CASES
 
