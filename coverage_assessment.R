@@ -64,6 +64,25 @@ table(nut$county, nut$sex, useNA="ifany")
 
 ## 6. What is the distribution of ages of children in the overall sample?
 table(nut$age)
+hist(nut$age)
+
+## 7. What is the distribution of ages of children by the sex of the child?
+table(nut$age, nut$sex)
+scatter.smooth(table(nut$age, nut$sex))
+
+
+## 8. What is the distribution of ages of children by location?
+table(nut&county, nut$age)
+barplot(table(nut$county, nut$age))
+labs(title = "Distribution of Ages of Children by Location", x = "Age(months)", y = "Children")
+
+## 9. What is the distribution of ages of children by sex and by location?
+library(ggplot2)
+
+ggplot(data = nut, aes(x = age, fill = sex)) +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 20) +
+  facet_wrap(~county) +
+  labs(title = "Distribution of Ages of Children by Sex and Location", x = "Age", y = "Count")
 
 
 
