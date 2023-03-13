@@ -23,7 +23,17 @@ View(nut1)
 ##Clean data in subset: Change 99 to NA 
 ###Clean data only after having made subset nut1. Code don't work if data is cleaned in nut and then subset. 
 nut1$muac_screen <- ifelse(nut1$muac_screen == 99, "NA", nut1$muac_screen)
+nut1$muac_screen [nut$muac_screen == 1] <- "Y"
+nut1$muac_screen [nut$muac_screen == 2] <- "N"
+
 nut1$oedema_screen <- ifelse(nut1$oedema_screen == 99, "NA", nut1$muac_screen)
+nut1$oedema_screen [nut$oedema_screen == 1] <- "Y"
+nut1$oedema_screen [nut$oedema_screen == 2] <- "N"
+
+nut1$sex <- ifelse(nut1$sex == 1, "Male", nut1$sex)
+nut1$sex <- ifelse(nut1$sex == 2, "Female", nut1$sex)
+
+View(nut1)
 
 ##1. What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample?
 ## Use tbl_summary to compare muac_screen by survey round, endline vs. baseline
@@ -36,12 +46,6 @@ nut1
 ### The endline data shows LITTLE if NO improvement in MUAC screening coverage among the sample children vs. baseline. Percentage of children had MUAC screened (answered 1 to survey) stayed relatively the same from baseline to endline. The percentage of children without MUAC screening went up from 73% to 93%, mainly due to children from the NA population at baseline moving over. This may suggest a better awareness in this population related to not having gotten MUAC screening?
 
 ##2. What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample by sex?
-
-##Present data: Replace value 1 and 2 in sex to Male and Female for better presentation.
-nut1$sex <- ifelse(nut1$sex == 1, "Male", nut1$sex)
-nut1$sex <- ifelse(nut1$sex == 2, "Female", nut1$sex)
-nut1
-
 nut1 %>% tbl_strata(strata=sex,.tbl_fun = ~ .x %>% 
                        tbl_summary(by = survey_round,
                                    include=c(muac_screen),
