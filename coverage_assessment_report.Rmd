@@ -41,8 +41,18 @@ This document reports on the results of the coverage assessment of the CMAM prog
 
 ## Nutrition screening coverage
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
+```{r}
+nut <- get_data()
+x<-table(nut$muac_screen[nut$county == "Urban Montserrado"], nut$sex[nut$county == "Urban Montserrado"],  nut$survey_round[nut$county == "Urban Montserrado"],useNA = "ifany")
+prop.table(x)
+y<-table(nut$muac_screen[nut$county == "Grand Bassa"], nut$sex[nut$county == "Grand Bassa"], nut$survey_round[nut$county == "Grand Bassa"], useNA = "ifany")
+prop.table(y)
 
-
+z<-table(nut$oedema_screen[nut$county == "Urban Montserrado"], nut$sex[nut$county == "Urban Montserrado"],  nut$survey_round[nut$county == "Urban Montserrado"], useNA = "ifany")
+prop.table(z)
+w<-table(nut$oedema_screen[nut$county == "Grand Bassa"], nut$sex[nut$county == "Grand Bassa"],  nut$survey_round[nut$county == "Grand Bassa"], useNA = "ifany")
+prop.table(w)
+```
 
 
 
