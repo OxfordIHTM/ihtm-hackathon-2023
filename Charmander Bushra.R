@@ -22,6 +22,20 @@ table(nut$muac_screen, useNA = "ifany")
 table(nut$muac_screen, nut$sex, useNA = "ifany")
 table(nut$muac_screen, nut$county, useNA = "ifany")
 nut$oedema_screen[nut$oedema_screen == 99] <-NA
+nut$muac_screen[nut$muac_screen == 99] <-NA
 table(nut$oedema_screen, useNA = "ifany")
 table(nut$oedema_screen, nut$sex, useNA = "ifany")
 table(nut$oedema_screen, nut$county, useNA = "ifany")
+table(nut$county, nut$survey_round, nut$sex, nut$muac_screen, useNA = "ifany")
+x<-table(nut$sex[nut$county== "Urban Montserrado"], nut$muac_screen[nut$county== "Urban Montserrado"], nut$survey_round[nut$county== "Urban Montserrado"], useNA = "ifany")
+#x<-data.frame(x)
+prop.table(x)
+y<-table(nut$sex[nut$county== "Grand Bassa"], nut$muac_screen[nut$county== "Grand Bassa"], nut$survey_round[nut$county== "Grand Bassa"], useNA = "ifany")
+#y<-data.frame(y)
+prop.table(y)
+
+```{r
+  x<-table(nut$sex[nut$county== "Urban Montserrado"], nut$muac_screen[nut$county== "Urban Montserrado"], nut$survey_round[nut$county== "Urban Montserrado"], useNA = "ifany")
+  prop.table(x)
+  y<-table(nut$sex[nut$county== "Grand Bassa"], nut$muac_screen[nut$county== "Grand Bassa"], nut$survey_round[nut$county== "Grand Bassa"], useNA = "ifany")
+  prop.table(y)}```
