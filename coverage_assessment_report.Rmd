@@ -34,8 +34,12 @@ This document reports on the results of the coverage assessment of the CMAM prog
 
 ## Description of the sample
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
-
-
+Distribution of Ages of Children by Sex and Location
+ggplot(data = nut, aes(x = age, fill = sex)) +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 20) +
+  facet_wrap(~county+sex) +
+  labs(title = "Distribution of Ages of Children by Sex and Location", x = "Age", y = "Count")
+  
 
 
 
