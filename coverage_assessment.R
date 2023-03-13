@@ -21,39 +21,16 @@ nut <- get_data()
 
 
 
-
-
-
- |  
-
-
-
 # Problem 2: Screening coverage ----
-
-
-
-
-
-
-
-
 
 
 # Problem 3: Prevalence of acute undernutrition/malnutrition ----
 
 
-
-
-
-
-
-
-
-
 # Problem 4: Coverage of severe acute malnutrition treatment ----
 
-> nut$sam[nut$age>=6 & nut$age<60 &(nut$muac<11.5 | nut$oedema==1)]<-'yes'
-> nut$sam[nut$age>=6 & nut$age<60 &(nut$muac>=11.5 | nut$oedema==2)]<-'no'
+nut$sam[nut$age>=6 & nut$age<60 &(nut$muac<11.5 | nut$oedema==1)]<-'yes'
+nut$sam[nut$age>=6 & nut$age<60 &(nut$muac>=11.5 | nut$oedema==2)]<-'no'
 
 
 
