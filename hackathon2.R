@@ -2,8 +2,8 @@
 ##Are wee expanding our screening coverage? From baseline vs. endline? By sex? By location?
 
 ## Install & Load R packages 
-install.packages("gtsummary")
-install.packages("dplyr")
+#install.packages("gtsummary")
+#install.packages("dplyr")
 
 library(dplyr)
 library("gtsummary")
@@ -18,7 +18,7 @@ nut
 ##Subset data: Transform variables of interest into table nut1 
 nut1 <- nut %>% select(survey_round,county,sex,muac_screen,oedema_screen)
 
-View(nut1)
+#View(nut1)
 
 ##Clean data in subset: Change 99 to NA 
 ###Clean data only after having made subset nut1. Code don't work if data is cleaned in nut and then subset. 
@@ -33,7 +33,7 @@ nut1$oedema_screen [nut$oedema_screen == 2] <- "N"
 nut1$sex <- ifelse(nut1$sex == 1, "Male", nut1$sex)
 nut1$sex <- ifelse(nut1$sex == 2, "Female", nut1$sex)
 
-View(nut1)
+#View(nut1)
 
 ##1. What is the coverage of mid-upper arm circumference (MUAC) screening among the children in the sample?
 ## Use tbl_summary to compare muac_screen by survey round, endline vs. baseline
