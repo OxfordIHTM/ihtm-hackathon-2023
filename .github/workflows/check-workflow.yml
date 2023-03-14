@@ -18,6 +18,10 @@ jobs:
         run: |
           apt-get update && apt-get install -y --no-install-recommends \
           libxt6 libglpk-dev
+          
+      - name: Trust git repo
+        run: |
+          git config --global --add safe.directory /__w/ihtm-hackathon-2023/ihtm-hackathon-2023
         
       - name: Install packages from renv.lock (with cache)
         if: ${{ !env.ACT }}  

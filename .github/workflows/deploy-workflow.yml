@@ -8,7 +8,7 @@ on:
       - '*'
 
 jobs:
-  check-workflow:
+  deploy-workflow:
     runs-on: ubuntu-latest
     container: rocker/verse:4.2.2
     steps:
