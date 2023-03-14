@@ -1,14 +1,14 @@
-name: check workflow
+name: deploy workflow
 
 on:
-  pull_request:
+  push:
     branches: [main, master]
   workflow_dispatch:
     branches:
       - '*'
 
 jobs:
-  check-workflow:
+  deploy-workflow:
     runs-on: ubuntu-latest
     container: rocker/verse:4.2.2
     steps:
@@ -18,7 +18,7 @@ jobs:
         run: |
           apt-get update && apt-get install -y --no-install-recommends \
           libxt6 libglpk-dev
-          
+
       - name: Trust git repo
         run: |
           git config --global --add safe.directory /__w/ihtm-hackathon-2023/ihtm-hackathon-2023
@@ -53,11 +53,12 @@ jobs:
             output_dir = "docs"
           )
         shell: Rscript {0}
-        
-      - name: Upload Rmarkdown reports
-        if: ${{ !env.ACT }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: rmd-output
-          path: ./docs/coverage_assessment_report.html
+
+      - name: Commit and push files
+        run: |
+          git config --global user.email "ernest@guevarra.io"
+          git config --global user.name "ernestguevarra"
+          git add docs
+          git diff-index --quiet HEAD || git commit -m "deploy report"
+          git push
           
