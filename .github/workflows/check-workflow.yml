@@ -53,14 +53,6 @@ jobs:
             output_dir = "docs"
           )
         shell: Rscript {0}
-
-      - name: Commit and push files
-        run: |
-          git config --global user.email "ernest@guevarra.io"
-          git config --global user.name "ernestguevarra"
-          git add ./docs/coverage_assessment_report.html
-          git diff-index --quiet HEAD || git commit -m "deploy report"
-          git push
         
       - name: Upload Rmarkdown reports
         if: ${{ !env.ACT }}

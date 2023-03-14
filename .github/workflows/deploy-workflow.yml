@@ -58,7 +58,7 @@ jobs:
         run: |
           git config --global user.email "ernest@guevarra.io"
           git config --global user.name "ernestguevarra"
-          git add ./docs/coverage_assessment_report.html
+          git add docs
           git diff-index --quiet HEAD || git commit -m "deploy report"
           git push
           
