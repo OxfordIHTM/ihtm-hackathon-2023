@@ -30,6 +30,7 @@ sum(A+B)
 length(nut$survey_round)
 #So there are no entries other than baseline and endline in survey_round column
 table(nut$survey_round, nut$sex, nut$county, useNA = "ifany")
+prop.table(nut$survey_round, nut$sex, nut$county, useNA = "ifany")
 
 # Problem 2: Screening coverage ----
 ##Or you can do it like this for question 1
