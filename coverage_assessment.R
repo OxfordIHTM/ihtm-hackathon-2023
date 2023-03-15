@@ -27,7 +27,7 @@ sum(nut$survey_round == "Baseline")
 ## number of children in Endline
 sum(nut$survey_round == "Endline")
 
-nrow(survey_round)
+#nrow(survey_round)
 
 ## Allocate Baseline to A
 A <- sum(nut$survey_round == "Baseline")
