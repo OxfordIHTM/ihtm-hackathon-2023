@@ -58,8 +58,7 @@ jobs:
         run: |
           git config --global user.email "ernest@guevarra.io"
           git config --global user.name "ernestguevarra"
-          git checkout gh-pages
           git add docs
           git diff-index --quiet HEAD || git commit -m "deploy report"
-          git push
+          git push origin gh-pages
           
