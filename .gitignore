@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+coverage_assessment_report.html
+!docs/coverage_assessment_report.html
