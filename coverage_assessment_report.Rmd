@@ -50,7 +50,9 @@ This document reports on the results of the coverage assessment of the CMAM prog
 ## Nutrition screening coverage
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
 
-```{r process_data_screen}
+The following data processing was first performed on the data before continuing on with the analysis.
+
+```{r process_data_screen, echo = TRUE}
 ## Subset data: Transform variables of interest into table nut1 
 nut1 <- nut %>% select(survey_round,county,sex,muac_screen,oedema_screen)
 
@@ -72,7 +74,7 @@ nut1$sex <- ifelse(nut1$sex == 1, "Male", "Female")
 
 The following table presents MUAC screening coverage by survey round.
 
-```{r muac_screen_table}
+```{r muac_screen_table, echo = TRUE}
 nut1 %>% 
   tbl_summary(
     by = survey_round, 
@@ -85,7 +87,7 @@ The endline data shows LITTLE if NO improvement in MUAC screening coverage among
 
 The following table presents MUAC screening coverage by survey round and by sex of the child.
 
-```{r muac_screen_by_sex_table}
+```{r muac_screen_by_sex_table, echo = TRUE}
 nut1 %>% 
   tbl_strata(
     strata = sex, 
@@ -102,7 +104,7 @@ There is no apparent difference in MUAC screening coverage between girls and boy
 
 The following table presents MUAC screening coverage by survey round and by survey location.
 
-```{r muac_screen_by_location_table}
+```{r muac_screen_by_location_table, echo = TRUE}
 nut1 %>% 
   tbl_strata(
     strata=county,
@@ -121,7 +123,7 @@ The data suggests an increase in children receiving MUAC screening at endline in
 
 The following table presents oedema screening by survey round.
 
-```{r oedema_screen_table}
+```{r oedema_screen_table, echo = TRUE}
 nut1 %>% 
   tbl_summary(
     by = survey_round, 
@@ -134,7 +136,7 @@ Similar to MUAC screening, the endline data shows little if no improvement in oe
 
 The following table presents oedema screening by survey round and by sex.
 
-```{r oedema_screen_by_sex}
+```{r oedema_screen_by_sex, echo = TRUE}
 nut1 %>% 
   tbl_strata(
     strata = sex,
@@ -151,7 +153,7 @@ The data suggests oedema screening improves SLIGHTLY in females vs. in males. Ho
 
 The following table presents oedema screening by survey round and by survey location.
 
-```{r oedema_screen_by_location}
+```{r oedema_screen_by_location, echo = TRUE}
 nut1 %>% 
   tbl_strata(
     strata = county,
@@ -166,9 +168,9 @@ nut1 %>%
 
 The same trend is observed here for oedema screening. The data suggests an increase in oedema screening coverage in Grand Bassa but a decrease in Urban Montserrado, suggesting Grand Bassa doing a better job. 
 
-The following table presents all the variables of interest with p-values for chi-squared test comparing results for each category.
+The following table presents all the variables of interest with *p-values* for *chi-squared test* comparing results for each category.
 
-```{r summary_table}
+```{r summary_table, echo = TRUE}
 nut1 %>% 
   tbl_summary(
     by = survey_round, 
@@ -177,7 +179,7 @@ nut1 %>%
   add_p() 
 ```
 
-Pearson's Chi-squared test at the end help to show that difference between endline and baseline is indeed statistically significant. But this may be driven mainly by the number answering no to screening increasing between baseline and endline, not a reflection of how well the screening has increased between the 2 timepoints.
+*Pearson's Chi-squared test* at the end help to show that difference between endline and baseline is indeed statistically significant. But this may be driven mainly by the number answering no to screening increasing between baseline and endline, not a reflection of how well the screening has increased between the 2 timepoints.
 
 ## Prevalence of acute undernutrition
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
@@ -189,7 +191,92 @@ Pearson's Chi-squared test at the end help to show that difference between endli
 ## Coverage of SAM treatment
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
 
+### Number of SAM cases found
 
+The following table presents the number of cases of SAM found in the overall sample.
 
+```{r sam_counts_table, echo = TRUE}
+nut$sam[nut$age >= 6 & nut$age < 60 & (nut$muac >= 11.5 | nut$oedema == 2)] <- 'no'
+nut$sam[nut$age >= 6 & nut$age < 60 & (nut$muac < 11.5 | nut$oedema == 1)] <-'yes'
 
+sam_table <- table(nut$sam)
+
+sam_table
+```
+
+There were a total of **`r sam_table[2]` SAM cases** found in the overall sample.
+
+The following table presents the number of SAM cases found in the sample by location.
+
+```{r sam_counts_location, echo = TRUE}
+sam_location_table <- table(nut$sam, nut$county)
+
+sam_location_table
+```
+
+There were a total of **`r sam_location_table[2, 1]` SAM cases** found in Grand Bassa compared to **`r sam_location_table[2, 2]` SAM cases** found in Urban Montserrado.
+
+The following table presents the number of SAM cases found in the sample by survey round.
+
+```{r sam_counts_round, echo = TRUE}
+sam_rounds_table <- table(nut$sam, nut$survey_round)
+
+sam_rounds_table
+```
+
+There were a total of **`r sam_rounds_table[2, 1]` SAM cases** found at baseline survey round compared to **`r sam_rounds_table[2, 2]` SAM cases** found at endline survey round.
+
+The following table prsents the number of SAM cases found in the sample by location and survey round.
+
+```{r sam_location_round, echo = TRUE}
+sam_location_rounds_table <- table(nut$sam, nut$survey_round, nut$county)
+
+sam_location_rounds_table
+```
+
+In Grand Bassa, there were a total of **`r sam_location_rounds_table[2, 1, 1]` SAM cases** found at baseline and **`r sam_location_rounds_table[2, 2, 1]`** SAM cases found at endline.
+
+In Urban Montserrado, there were a total of **`r sam_location_rounds_table[2, 1, 2]` SAM cases** found at baseline and **`r sam_location_rounds_table[2, 2, 2]`** SAM cases found at endline.
+
+### Case-finding effectiveness
+
+The following table presents the case-finding effectiveness of the CMAM programme overall.
+
+```{r case-finding}
+samcov <- table(nut$sam, nut$cov_status)
+
+samcov
+## prop.table(samcov) * 100      This code gives proportion of SAM cases in the
+                              ## programme by all children in the sample which 
+                              ## is not consistent with the coverage estimator
+
+## This code calculates the proportions for only those children who are SAM and 
+## in the programme
+samcovprop <- prop.table(samcov[2, ] * 100)
+
+samcovprop
+```
+
+The case-finding effectiveness of the CMAM programme overall was at **`r round(samcovprop[1], digits = 2)`%**. 
+
+The following table presents the case-finding effectiveness of the CMAM programme by location.
+
+```{r case-finding-location, echo = TRUE}
+samcovloc <- table(nut$sam, nut$cov_status, nut$county)
+
+samcovloc
+
+## prop.table(samcovloc) * 100     This code gives proportion of SAM cases in the
+                                ## programme by all children in the sample
+                                ## which is not consistent with the coverage
+                                ## estimator
+
+## This code calculates the proportions for only those children who are SAM
+## and in the programme for each location
+samcov_grandbassa <- prop.table(samcovloc[2, , 1]) * 100
+
+samcov_urbanmontserrado <- prop.table(samcovloc[2, , 2]) * 100
+```
+
+In Grand Bassa, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_grandbassa[1], digits = 2)`%**. In Urban Montserrado, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_urbanmontserrado[1], digits = 2)`%**.
 
