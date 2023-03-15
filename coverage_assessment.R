@@ -230,5 +230,3 @@ table(nut$cov_status==1 & nut$sam=="no")
 
 
 ## 8. What is the treatment coverage of the SAM treatment programme by location?
-
-
