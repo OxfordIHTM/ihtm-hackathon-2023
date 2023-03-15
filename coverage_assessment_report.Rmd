@@ -628,7 +628,11 @@ samcovloc
 ## and in the programme for each location
 samcov_grandbassa <- prop.table(samcovloc[2, , 1]) * 100
 
+samcov_grandbassa
+
 samcov_urbanmontserrado <- prop.table(samcovloc[2, , 2]) * 100
+
+samcov_urbanmontserrado
 ```
 
 In Grand Bassa, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_grandbassa[1], digits = 2)`%**. In Urban Montserrado, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_urbanmontserrado[1], digits = 2)`%**.
