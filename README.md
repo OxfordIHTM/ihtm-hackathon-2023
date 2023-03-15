@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Oxford International Health and Tropical Medicine Hackathon 2023 <img src="https://github.com/OxfordIHTM/open-reproducible-science/raw/main/images/ihtm_small.png" width="200px" align="right" />
+# Oxford International Health and Tropical Medicine Hackathon 2023 <img src="https://raw.githubusercontent.com/OxfordIHTM/open-reproducible-science/main/images/oxford_codehub.png" width="200px" align="right" />
 
 <!-- badges: start -->
 
@@ -11,6 +11,8 @@ data](https://img.shields.io/badge/license%20(for%20data)-CC0-blue.svg)](https:/
 code](https://img.shields.io/badge/license%20(for%20code)-GPL3.0-blue.svg)](https://opensource.org/licenses/gpl-3.0.html)
 [![check
 workflow](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/check-workflow.yml/badge.svg)](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/check-workflow.yml)
+[![deploy
+workflow](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/deploy-workflow.yml/badge.svg)](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/deploy-workflow.yml)
 <!-- badges: end -->
 
 This repository contains instructions, data and code for the [University
@@ -143,30 +145,3 @@ License 3 (GPL-3)](https://opensource.org/licenses/gpl-3.0.html)
 license.
 
 <br/> <br/>
-
-get_data()
-
-renv::restore()
-
-?read.table
-
-read.csv(file = "data/nutrition_survey_data.csv", header = TRUE)
-
-nut <- read.csv(file = "data/nutrition_survey_data.csv", header = TRUE)
-
-nut
-
-library(dplyr)
-
-## Load functions in R directory ----
-for (f in list.files("R", full.names = TRUE)) source (f)
-
-
-# Read data ----
-nut <- get_data()
-
-sum(nut$oedema = "2", muac = "11.5-12.5")
-
-?sum
-with(nut, sum(muac > 11.5 & muac <12.5, oedema == 1, na.rm= TRUE))
-

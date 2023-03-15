@@ -633,3 +633,5 @@ samcov_urbanmontserrado <- prop.table(samcovloc[2, , 2]) * 100
 
 In Grand Bassa, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_grandbassa[1], digits = 2)`%**. In Urban Montserrado, the case-finding effectiveness of the CMAM programme was at **`r round(samcov_urbanmontserrado[1], digits = 2)`%**.
 
+<br/>
+<br/>
