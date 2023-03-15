@@ -143,3 +143,30 @@ License 3 (GPL-3)](https://opensource.org/licenses/gpl-3.0.html)
 license.
 
 <br/> <br/>
+
+get_data()
+
+renv::restore()
+
+?read.table
+
+read.csv(file = "data/nutrition_survey_data.csv", header = TRUE)
+
+nut <- read.csv(file = "data/nutrition_survey_data.csv", header = TRUE)
+
+nut
+
+library(dplyr)
+
+## Load functions in R directory ----
+for (f in list.files("R", full.names = TRUE)) source (f)
+
+
+# Read data ----
+nut <- get_data()
+
+sum(nut$oedema = "2", muac = "11.5-12.5")
+
+?sum
+with(nut, sum(muac > 11.5 & muac <12.5, oedema == 1, na.rm= TRUE))
+
