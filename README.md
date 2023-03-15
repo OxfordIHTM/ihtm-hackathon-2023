@@ -11,6 +11,8 @@ data](https://img.shields.io/badge/license%20(for%20data)-CC0-blue.svg)](https:/
 code](https://img.shields.io/badge/license%20(for%20code)-GPL3.0-blue.svg)](https://opensource.org/licenses/gpl-3.0.html)
 [![check
 workflow](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/check-workflow.yml/badge.svg)](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/check-workflow.yml)
+[![deploy
+workflow](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/deploy-workflow.yml/badge.svg)](https://github.com/OxfordIHTM/ihtm-hackathon-2023/actions/workflows/deploy-workflow.yml)
 <!-- badges: end -->
 
 This repository contains instructions, data and code for the [University
