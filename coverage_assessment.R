@@ -9,6 +9,7 @@
 ## Load R packages ----
 library(dplyr)
 library(gtsummary)  ## Used by Team Charmander/@quyen for their tables
+library(ggplot2)    ## Used by Team Eevee for their plots
 
 ## Load functions in R directory ----
 for (f in list.files("R", full.names = TRUE)) source (f)
@@ -19,6 +20,91 @@ nut <- get_data()
 
 
 # Problem 1: Describe the data ----
+
+## number of children in Baseline
+sum(nut$survey_round == "Baseline")
+
+## number of children in Endline
+sum(nut$survey_round == "Endline")
+
+nrow(survey_round)
+
+## Allocate Baseline to A
+A <- sum(nut$survey_round == "Baseline")
+
+## Allocate Endline to B
+B <- sum(nut$survey_round == "Endline")
+
+## Total
+sum(A+B)
+
+## Total without NA
+#sum(1218+1187+1491+1428+1968+1861+1794+1763)
+#12710
+
+## This is the SUM way of doing it
+sum(nut$sex %in% c(1))
+sum(nut$sex %in% c(2))
+sum(nut$sex %in% c(NA))
+A <- sum(nut$sex %in% c(NA))
+B<- sum(nut$sex %in% c(2))
+C <- sum(nut$sex %in% c(1))
+B+C-A
+
+## Or you can do it like this for question 1. How many children are in the overall sample?
+sum(is.na(nut$sex))
+
+sum(nut$sex, na.rm = TRUE)
+
+## 2.How many children are males and how many are females?
+table(nut$sex, useNA = "ifany")
+
+## 3. How many children are from Urban Montserrado and how many are from Grand Bassa?
+table(nut$county, useNA = "ifany")
+
+## 4. How many children are males from Urban Montserrado and males from Grand Bassa? and 5. How many children are females from Urban Montserrado and females from Grand Bassa?
+table(nut$county, nut$sex, useNA = "ifany")
+
+## 6. What is the distribution of ages of children in the overall sample?
+table(nut$age)
+hist(nut$age)
+
+## 7. What is the distribution of ages of children by the sex of the child?
+table(nut$age, nut$sex)
+scatter.smooth(table(nut$age, nut$sex))
+
+## 8. What is the distribution of ages of children by location?
+table(nut&county, nut$age)
+barplot(
+  height = table(nut$county, nut$age),
+  beside = FALSE,
+  legend.text = TRUE,
+  main = "Distribution of Ages of Children by Location",
+  xlab = "Age (months)",
+  ylab = "n"
+)
+
+## 9. What is the distribution of ages of children by sex and by location?
+
+ggplot(
+  data = nut, 
+  aes(
+    x = age, 
+    fill = factor(sex, labels = c("Male", "Female")),
+    group = factor(sex, labels = c("Male", "Female"))
+  )
+) +
+  geom_histogram(alpha = 0.5, bins = 60) +
+  scale_x_continuous(n.breaks = 24) +
+  facet_wrap( ~ county, ncol = 2) +
+  labs(
+    title = "Distribution of Ages of Children by Sex and Location", 
+    x = "Age (months()", y = "n",
+    fill = NULL
+  ) +
+  theme_bw() +
+  theme(legend.position = "top")
+
 
 # Problem 2: Screening coverage ----
 ## Following code based on R script in hackathon2.R from @quyen. Modifications
