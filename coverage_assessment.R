@@ -320,50 +320,80 @@ SAM_prevalences_table
 
 
 ## SAM OR MAM CASES:
+MALNUTRITION <- ifelse(nut$muac < 11.5 | nut$oedema == 1, "SAM", "No SAM")
 
-MALNUTRITION <- ifelse(nut$muac <11.5 | nut$oedema == 1, "SAM","No SAM")
-
-MALNUTRITION <- ifelse(nut$muac >=11.5 & nut$muac < 12.5 & nut$oedema == 2, "MAM", MALNUTRITION)
+MALNUTRITION <- ifelse(
+  nut$muac >= 11.5 & nut$muac < 12.5 & nut$oedema == 2, "MAM", MALNUTRITION
+)
 
 MALNUTRITION <- ifelse(MALNUTRITION == "No SAM", "not SAM or MAM", MALNUTRITION)
 
-MALNUTRITION <- ifelse(nut$age >=6 & nut$age <60, MALNUTRITION, NA )
+MALNUTRITION <- ifelse(nut$age >= 6 & nut$age < 60, MALNUTRITION, NA)
 
-final<- table(SEX,OEDEMA,MALNUTRITION,COUNTY, useNA = "ifany") ##CREATING A TABLE FOR EITHER MAM OR SAM CASES
+### CREATING A TABLE FOR EITHER MAM OR SAM CASES
+final <- table(
+  SEX, OEDEMA, MALNUTRITION, COUNTY, useNA = "ifany"
+) 
 
-data.frame(final) ## CREATING A DATA FRAME FOR TOTAL SAM OR MAM CASES
+### CREATING A DATA FRAME FOR TOTAL SAM OR MAM CASES
+data.frame(final) 
 
+## NUMBER OF SAM OR MAM CASES
 
-##NUMBER OF SAM OR MAM CASES
+### TOTAL SAM OR MAM FEMALES IN URBAN MONTSERRADO
+SAMorMAM_F1 <- final["Female", , c("MAM", "SAM"), "Urban Montserrado"] 
 
-SAMorMAM_F1 <- final["Female",, c("MAM","SAM"), "Urban Montserrado"] ##TOTAL SAM OR MAM FEMALES IN URBAN MONTSERRADO
+### TOTAL SAM OR MAM FEMALES IN GRAND BASSA
+SAMorMAM_F2 <- final["Female", , c("MAM", "SAM"), "Grand Bassa"] 
 
-SAMorMAM_F2 <- final["Female",,c("MAM","SAM"),"Grand Bassa"] ##TOTAL SAM OR MAM FEMALES IN GRAND BASSA
+### TOTAL SAM OR MAM MALES IN URBAN MONTSERRADO
+SAMorMAM_M1 <- final["Male", , c("MAM", "SAM"), "Urban Montserrado"] 
 
-SAMorMAM_M1 <- final["Male",,c("MAM","SAM"),"Urban Montserrado"] ##TOTAL SAM OR MAM MALES IN URBAN MONTSERRADO
+### TOTAL SAM OR MAM FEMALES IN GRAND BASSA
+SAMorMAM_M2 <- final["Male", , c("MAM", "SAM"), "Grand Bassa"] 
 
-SAMorMAM_M2 <- final["Male",,c("MAM","SAM"),"Grand Bassa"] ##TOTAL SAM OR MAM FEMALES IN GRAND BASSA
+### CREATING A DATA FRAME FOR TOTAL SAM OR MAM CASES BY SEX AND COUNTY
+SAMorMAM_number <- data.frame(
+  Sex = c("Female", "Female", "Male", "Male"), 
+  County = c("Urban Montserrado", "Grand Bassa", "Urban Montserrado", "Grand Bassa"), 
+  Number_of_SAMorMAM = c(SAMorMAM_F1, SAMorMAM_F2, SAMorMAM_M1, SAMorMAM_M2)
+) 
 
-SAMorMAM_number <- data.frame(Sex = c("Female", "Female", "Male", "Male"),County = c("Urban Montserrado", "Grand Bassa", "Urban Montserrado", "Grand Bassa"), Number_of_SAMorMAM = c(SAMorMAM_F1, SAMorMAM_F2, SAMorMAM_M1, SAMorMAM_M2)) ##CREATING A DATA FRAME FOR TOTAL SAM OR MAM CASES BY SEX AND COUNTY
+### CREATING A TABLE FOR SAM OR MAM CASES BY SEX AND COUNTY
+SAMorMAM_number_table <- xtabs(
+  Number_of_SAMorMAM ~ Sex + County, data = SAMorMAM_number
+) 
 
-SAMorMAM_number_table <- xtabs(Number_of_SAMorMAM ~ Sex + County, data = SAMorMAM_number) ##CREATING A TABLE FOR SAM OR MAM CASES BY SEX AND COUNTY
+### VIEW SAM OR MAM CASES BY SEX AND COUNTY
+SAMorMAM_number_table 
 
-SAMorMAM_number_table ##VIEW SAM OR MAM CASES BY SEX AND COUNTY
+### PREVALENCE OF FEMALE MAM OR SAM CASES IN URBAN MONTSERRADO
+Prev1_SAMorMAM <- final["Female", , c("MAM", "SAM"), "Urban Montserrado"] / Den 
 
-Prev1_SAMorMAM <- final["Female",, c("MAM","SAM"), "Urban Montserrado"]/Den ##PREVALENCE OF FEMALE MAM OR SAM CASES IN URBAN MONTSERRADO
+### PREVALENCE OF FEMALE MAM OR SAM CASES IN GRAND BASSA
+Prev2_SAMorMAM <- final["Female", , c("MAM", "SAM"), "Grand Bassa"] / Den 
 
-Prev2_SAMorMAM <- final["Female",, c("MAM","SAM"), "Grand Bassa"]/Den ##PREVALENCE OF FEMALE MAM OR SAM CASES IN GRAND BASSA
+### PREVALENCE OF MALE MAM OR SAM CASES IN URBAN MONTSERRADO
+Prev3_SAMorMAM <- final["Female", , c("MAM", "SAM"), "Urban Montserrado"] / Den 
 
-Prev3_SAMorMAM <- final["Female",, c("MAM","SAM"), "Urban Montserrado"]/Den ##PREVALENCE OF MALE MAM OR SAM CASES IN URBAN MONTSERRADO
+### PREVALENCE OF FEMALE MAM OR SAM CASES IN GRAND BASSA
+Prev4_SAMorMAM <- final["Female", , c("MAM", "SAM"), "Grand Bassa"] / Den 
 
-Prev4_SAMorMAM <- final["Female",, c("MAM","SAM"), "Grand Bassa"]/Den ##PREVALENCE OF FEMALE MAM OR SAM CASES IN GRAND BASSA
+### CREATING A DATA FRAME FOR PREVALENCE OF SAM OR MAM CASES BY SEX AND COUNTY
+SAMorMAM_prevalences <- data.frame(
+  Sex = c("Female", "Female", "Male", "Male"),
+  County = c("Urban Montserrado", "Grand Bassa", "Urban Montserrado", "Grand Bassa"),
+  Prevalence_of_SAM = c(Prev1_SAMorMAM, Prev2_SAMorMAM, Prev3_SAMorMAM, Prev4_SAMorMAM)
+) 
 
-SAMorMAM_prevalences <- data.frame(Sex = c("Female", "Female", "Male", "Male"),County = c("Urban Montserrado", "Grand Bassa", "Urban Montserrado", "Grand Bassa"),Prevalence_of_SAM = c(Prev1_SAMorMAM,Prev2_SAMorMAM,Prev3_SAMorMAM,Prev4_SAMorMAM)) ##CREATING A DATA FRAME FOR PREVALENCE OF SAM OR MAM CASES BY SEX AND COUNTY
+### CREATING A TABLE FOR PREVALENCE OF SAM OR MAM BY SEX AND COUNTY
+SAMorMAM_prevalences_table <- xtabs(
+  Prevalence_of_SAM ~ Sex + County, 
+  data = SAMorMAM_prevalences
+) 
 
-SAMorMAM_prevalences_table <- xtabs(Prevalence_of_SAM ~ Sex + County, data = SAMorMAM_prevalences) ##CREATING A TABLE FOR PREVALENCE OF SAM OR MAM BY SEX AND COUNTY
-
-SAMorMAM_prevalences_table ##VIEW SAM OR MAM PREVALENCE BY SEX AND COUNTY
-
+### VIEW SAM OR MAM PREVALENCE BY SEX AND COUNTY
+SAMorMAM_prevalences_table 
 
 
 # Problem 4: Coverage of severe acute malnutrition treatment ----

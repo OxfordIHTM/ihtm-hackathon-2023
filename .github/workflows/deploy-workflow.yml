@@ -2,7 +2,7 @@ name: deploy workflow
 
 on:
   push:
-    branches: [main, master]
+    branches: gh-pages
   workflow_dispatch:
     branches:
       - '*'
