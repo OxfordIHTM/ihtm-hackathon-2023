@@ -74,7 +74,7 @@ table(nut$age, nut$sex)
 scatter.smooth(table(nut$age, nut$sex))
 
 ## 8. What is the distribution of ages of children by location?
-table(nut&county, nut$age)
+table(nut$county, nut$age)
 barplot(
   height = table(nut$county, nut$age),
   beside = FALSE,
