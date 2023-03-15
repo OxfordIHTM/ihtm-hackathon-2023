@@ -99,7 +99,7 @@ ggplot(
   facet_wrap( ~ county, ncol = 2) +
   labs(
     title = "Distribution of Ages of Children by Sex and Location", 
-    x = "Age (months()", y = "n",
+    x = "Age (months)", y = "n",
     fill = NULL
   ) +
   theme_bw() +
