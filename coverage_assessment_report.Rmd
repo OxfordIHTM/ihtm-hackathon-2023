@@ -109,7 +109,7 @@ ggplot(
   facet_wrap( ~ county, ncol = 2) +
   labs(
     title = "Distribution of Ages of Children by Sex and Location", 
-    x = "Age (months()", y = "n",
+    x = "Age (months)", y = "n",
     fill = NULL
   ) +
   theme_bw() +
@@ -248,7 +248,7 @@ nut1 %>%
   add_p() 
 ```
 
-*Pearson's Chi-squared test* at the end help to show that difference between endline and baseline is indeed statistically significant. But this may be driven mainly by the number answering no to screening increasing between baseline and endline, not a reflection of how well the screening has increased between the 2 timepoints.
+*Pearson's Chi-squared test* at the end help to show that difference between endline and baseline is indeed statistically significant. But this may be driven mainly by the number answering no to screening increasing between baseline and endline, not a reflection of how well the screening has increased between the 2 time points.
 
 ## Prevalence of acute undernutrition
 <!--- INSERT TEXT AND LITERATE CODE BELOW THIS LINE --->
@@ -579,7 +579,7 @@ sam_rounds_table
 
 There were a total of **`r sam_rounds_table[2, 1]` SAM cases** found at baseline survey round compared to **`r sam_rounds_table[2, 2]` SAM cases** found at endline survey round.
 
-The following table prsents the number of SAM cases found in the sample by location and survey round.
+The following table presents the number of SAM cases found in the sample by location and survey round.
 
 ```{r sam_location_round, echo = TRUE}
 sam_location_rounds_table <- table(nut$sam, nut$survey_round, nut$county)
